@@ -65,7 +65,7 @@ router.post(`/?app_id=${Secure}/data`, [
     check('totalIngametoken'),
     check('result'),
     check('challengeprice'),
-    check('rewardToken'),
+    // check('rewardToken'),
     check('gameId'),
     
 ], authenticate, Auth.data);
