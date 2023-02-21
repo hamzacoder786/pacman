@@ -38,6 +38,10 @@ const UserSchema = new mongoose.Schema({
         type: String,
         default:0,
     },
+    rewardToken: {
+        type: String,
+        default:0,
+    },
 
     // firstName: {
     //     type: String,
