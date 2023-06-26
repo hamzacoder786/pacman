@@ -8,7 +8,7 @@ const path = require("path");
 
 // Setting up port
 // const connUri = 'mongodb+srv://hitler:Scooter786@cluster0.8iqde.mongodb.net/test';
-let PORT = process.env.PORT || 5000;
+let PORT = process.env.PORT || 3000;
 
 //=== 1 - CREATE APP
 // Creating express app and configuring middleware needed for authentication
@@ -34,7 +34,7 @@ app.set('view engine', 'jade');
 //=== 2 - SET UP DATABASE
 //Configure mongoose's promise to global promise
 mongoose.promise = global.Promise;
-mongoose.connect("mongodb+srv://hitler:Scooter786@cluster0.razjzzx.mongodb.net/test");
+mongoose.connect("mongodb+srv://hitler:Scooter786@cluster0.tdsev.mongodb.net/?retryWrites=true&w=majority");
 // mongodb+srv://hitler:Scooter786@cluster0.8iqde.mongodb.net/test");
 
 const connection = mongoose.connection;

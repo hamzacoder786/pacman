@@ -7,9 +7,9 @@ const dataSchema = new mongoose.Schema({
     //     ref: 'User'
     // },
 
-    address: {
+    UserWallet: {
         type: String,
-        required: 'Your score is required'
+        required: 'Your UserWallet is required'
     },
 
     // score: {
@@ -22,30 +22,29 @@ const dataSchema = new mongoose.Schema({
     //     required: 'Your reserved is required'
     // },
 
-    totalIngametoken: {
-        type: Number,
-        required: 'Your totalIngametoken is required'
+    HiddenWallet: {
+        type: String,
+        required: 'Your HiddenWallet is required'
     },
-    rewardToken: {
-        type: Number,
-        required: 'Your rewardToken is required',
-        default:'0'
+    score: {
+        type: String,
+        required: 'Your score is required',
     },
 
-    result: {
-        type: String,
-        required: 'Your result is required'
-    },
+    // result: {
+    //     type: String,
+    //     required: 'Your result is required'
+    // },
 
-    gameId: {
-        type: String,
-        required: 'Your game id is required'
-    },
+    // gameId: {
+    //     type: String,
+    //     required: 'Your game id is required'
+    // },
     
-    challengeprice: {
-        type: Number,
-        required: 'Your challengeprice is required'
-    },
+    // challengeprice: {
+    //     type: Number,
+    //     required: 'Your challengeprice is required'
+    // },
 
     createdAt: {
         type: Date,

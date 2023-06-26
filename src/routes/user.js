@@ -25,15 +25,15 @@ router.put('/updatelogin/:address', User.updateLogin);
 
 
 
-router.post('/data', [
-    check('score'),
-    check('reserved'),
-    check('totalIngametoken'),
-    check('result'),
-    check('challengeprice'),
-    // check('firstName').not().isEmpty().withMessage('You first name is required'),
-    // check('lastName').not().isEmpty().withMessage('You last name is required')
-], validate, Data.store);
+// router.post('/data', [
+//     check('score'),
+//     check('reserved'),
+//     check('totalIngametoken'),
+//     check('result'),
+//     check('challengeprice'),
+//     // check('firstName').not().isEmpty().withMessage('You first name is required'),
+//     // check('lastName').not().isEmpty().withMessage('You last name is required')
+// ], validate, Data.store);
 
 
 router.post('/', [

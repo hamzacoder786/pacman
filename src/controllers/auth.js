@@ -37,11 +37,20 @@ exports.register = async (req, res) => {
 };
 exports.data = async (req, res) => {
   try {
-   
-      const newData = new Data({ ...req.body, role: "basic" });
 
-      const user_ = await newData.save();
-      res.status(200).json({message:"data-inserted",newData});
+    const { UserWallet } = req.body;
+
+
+        // Make sure this account doesn't already exist
+        const user = await Data.findOne({ UserWallet });
+
+
+        if (user) return res.status(401).json({message: 'duplicate-UserWallet'});
+
+        const newData = new Data({ ...req.body, role: "basic" });
+
+        const user_ = await newData.save();
+        res.status(200).json({message:"data-inserted",newData});
    
   } catch (error) {
       res.status(500).json({success: false, message: error.message})
@@ -176,13 +185,11 @@ exports.updatehistory =async (req, res) => {
   //           message: "Fields can not be empty"
   //       });
   //   }
-        const address =  await Data.findOne({ address: req.params.address }).exec()
+        const UserWallet =  await Data.findOne({ UserWallet: req.params.UserWallet }).exec()
      // Find category and update it with the request body
-     Data.findByIdAndUpdate(req.params.address, {
-        address: req.body.address,
-        result: req.body.result,
-        totalIngametoken: req.body.totalIngametoken,
-        rewardToken: req.body.rewardToken,
+     Data.findByIdAndUpdate(req.params.UserWallet, {
+      UserWallet: req.body.UserWallet,
+      score: req.body.score,
     }, {new: true})
     .then(User => {
         if(!User) {

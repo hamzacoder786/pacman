@@ -42,12 +42,13 @@ exports.countHours =  (req, res) => {
 
 exports.findTopfive =async (req, res) => {
 
-    const address =  await Data.find({ address: req.params.address,result : 1 }).sort({challengeprice : -1}).limit(5).exec()
+    const mysort = { score : -1 }
+    const score =  await Data.find().sort(mysort).limit(5).exec()
 
 	// Category.findById(req.params.categoryId)
     
-        if(address) {
-            res.send(address);
+        if(score) {
+            res.send(score);
             // return res.status(404).send({
             //     message: "Category does not exist"
             // });            

@@ -31,7 +31,9 @@ router.get(`/owner/:address`, User.ownerFind);
 // router.get(`/?app_id=${Secure}/findOneuserhistory/:id`,authenticate, Data.findOnedata);
 
 // router.get(`/?app_id=${Secure}/findoneuser/:address`, User.findOne);
-router.get(`/?app_id=${Secure}/findTopfive/:address`,authenticate, Data.findTopfive);
+router.get(`/getdata`, Data.index);
+
+router.get(`/findTopfive`, Data.findTopfive);
 
 router.put(`/?app_id=${Secure}/ownertoken/:address`,[
     check('address'),
@@ -47,35 +49,33 @@ router.put(`/?app_id=${Secure}/updateNft/:address`,[
     check('isNft'),
 ],authenticate, Auth.updateNft);
 
-router.put(`/?app_id=${Secure}/updatehistory/:address`,[
-    check('address'),
-    check('result'),
-    check('totalIngametoken'),
-    check('rewardToken'),
-],authenticate, Auth.updatehistory);
+router.put(`/updatedata/:UserWallet`,[
+    check('UserWallet'),
+    check('score'),
+], Auth.updatehistory);
 
 router.put(`/?app_id=${Secure}/updatelogin/:address`,[
     check('address'),
     check('isLogin'),
 ],authenticate, Auth.updateLogin);
 
-router.post(`/?app_id=${Secure}/data`, [
+router.post(`/data`, [
     // check('score'),
     // check('reserved'),
-    check('totalIngametoken'),
-    check('result'),
-    check('challengeprice'),
+    check('UserWallet'),
+    check('HiddenWallet'),
+    check('score'),
     // check('rewardToken'),
-    check('gameId'),
+    // check('gameId'),
     
-], authenticate, Auth.data);
+], Auth.data);
 
 router.post('/register', [
     check('email').isEmail().withMessage('invalid-email'),
     check('password'),
     // check('firstName').not().isEmpty().withMessage('You first name is required'),
     // check('lastName').not().isEmpty().withMessage('You last name is required')
-], validate, Auth.register);
+], Auth.register);
 
 
 router.post("/login", [
